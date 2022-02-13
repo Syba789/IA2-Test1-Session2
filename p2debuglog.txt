@@ -1,0 +1,124 @@
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x822: file p1final.c, line 16.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2-5/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:16
+16  {
+(gdb) n
+18  input(&base,&height);
+(gdb) s
+input (base=0x7fff2f3b9ccc, height=0x7fff2f3b9cd0) at p1final.c:4
+4     printf("enter the base and height of triangle\n");
+(gdb) n
+enter the base and height of triangle
+5     scanf("%f%f",base,height);
+(gdb) n
+1
+2
+ a.out
+sh: 1: a.out: not found
+exit status 127
+ gcc -g p2final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7c4: file p2final.c, line 25.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2-5/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:25
+25    a=input_side();
+(gdb) s
+input_side () at p2final.c:3
+3   {
+(gdb) n
+5     scanf("%d",&a);
+(gdb) n
+1
+6     return a;
+(gdb) n
+7   }
+(gdb) n
+main () at p2final.c:26
+26    b=input_side();
+(gdb) s
+input_side () at p2final.c:3
+3   {
+(gdb) n
+5     scanf("%d",&a);
+(gdb) n
+5
+6     return a;
+(gdb) n
+7   }
+(gdb) n
+main () at p2final.c:27
+27    c=input_side();
+(gdb) s
+input_side () at p2final.c:3
+3   {
+(gdb) n
+5     scanf("%d",&a);
+(gdb) n
+6
+6     return a;
+(gdb) n
+7   }
+(gdb) n
+main () at p2final.c:28
+28    isscalene=check_scalene(a,b,c);
+(gdb) s
+check_scalene (a=1, b=5, c=6) at p2final.c:12
+12    isscalene=1;
+(gdb) n
+13    return isscalene;
+(gdb) n
+14  }
+(gdb) n
+main () at p2final.c:29
+29    output(a,b,c,isscalene);
+(gdb) n
+30    return 0;
+(gdb) n
+31  }
+(gdb) n
+__libc_start_main (main=0x555b16a007bc <main>, argc=1, argv=0x7ffe0442c318, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffe0442c308) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+triangle is scalene[Inferior 1 (process 1828) exited normally]
