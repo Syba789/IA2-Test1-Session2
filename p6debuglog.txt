@@ -1,4 +1,4 @@
-gcc -g p6final.c
+ gcc -g p6final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,9 +16,9 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x8e1: file p6final.c, line 38.
+Breakpoint 1 at 0x8de: file p6final.c, line 38.
 (gdb) r
-Starting program: /home/runner/IA2-Test1-Session2-5/a.out 
+Starting program: /home/runner/IA2-Test1-Session2-10/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
 Breakpoint 1, main () at p6final.c:38
@@ -26,7 +26,7 @@ Breakpoint 1, main () at p6final.c:38
 (gdb) n
 40    input_string(a);
 (gdb) s
-input_string (a=0x7ffe21ade230 "\a\227\060\330<\177") at p6final.c:6
+input_string (a=0x7ffca8a9cb40 "\a'\r~6\177") at p6final.c:6
 6     printf("enter a string\n");
 (gdb) n
 enter a string
@@ -37,26 +37,73 @@ hello
 (gdb) n
 main () at p6final.c:41
 41    str_copy(d,a);
-(gdb) n
-42    str_reverse(a);
-(gdb) n
-43    output(a);
 (gdb) s
-output (a=0x7ffe21ade230 "hello") at p6final.c:35
-35    printf("the reverse id %s",a);
+str_copy (d=0x7ffca8a9cbb0 "", a=0x7ffca8a9cb40 "hello")
+    at p6final.c:17
+17    for(int i=0; a[i]!='\0'; i++)
 (gdb) n
-36  }
+19        d[i]= a[i];
 (gdb) n
-main () at p6final.c:44
+17    for(int i=0; a[i]!='\0'; i++)
+(gdb) n
+n19       d[i]= a[i];
+(gdb) n
+17    for(int i=0; a[i]!='\0'; i++)
+(gdb) n
+19        d[i]= a[i];
+(gdb) n
+17    for(int i=0; a[i]!='\0'; i++)
+(gdb) n
+19        d[i]= a[i];
+(gdb) n
+17    for(int i=0; a[i]!='\0'; i++)
+(gdb) n
+19        d[i]= a[i];
+(gdb) n
+17    for(int i=0; a[i]!='\0'; i++)
+(gdb) n
+21  }
+(gdb) n
+main () at p6final.c:42
+42    str_reverse(a);
+(gdb) s
+str_reverse (a=0x7ffca8a9cb40 "hello") at p6final.c:24
+24    int length=string_length(a);
+(gdb) n
+25    length-=1;char t;
+(gdb) n
+26    for(int i=0; i<length/2; i++)
+(gdb) n
+28      t=a[i];
+(gdb) n
+29      a[i]=a[length-i];
+(gdb) n
+30      a[length-i]=t;
+(gdb) n
+26    for(int i=0; i<length/2; i++)
+(gdb) n
+28      t=a[i];
+(gdb) n
+29      a[i]=a[length-i];
+(gdb) n
+30      a[length-i]=t;
+(gdb) n
+26    for(int i=0; i<length/2; i++)
+(gdb) n
+32  }
+(gdb) n
+main () at p6final.c:43
+43    output(a);
+(gdb) n
 44    return 0;
 (gdb) n
 45  }
 (gdb) n
-__libc_start_main (main=0x55b797e008d6 <main>, argc=1, 
-    argv=0x7ffe21ade3f8, init=<optimized out>, fini=<optimized out>, 
-    rtld_fini=<optimized out>, stack_end=0x7ffe21ade3e8)
+__libc_start_main (main=0x556c1d6008d3 <main>, argc=1, 
+    argv=0x7ffca8a9cd08, init=<optimized out>, fini=<optimized out>, 
+    rtld_fini=<optimized out>, stack_end=0x7ffca8a9ccf8)
     at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) n
-the reverse id hello[Inferior 1 (process 276) exited normally]
+the reverse id olleh[Inferior 1 (process 184) exited normally]
 (gdb) 

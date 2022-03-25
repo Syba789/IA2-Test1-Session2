@@ -15,14 +15,14 @@ int string_length(char *a)
 char str_copy(char *d,char *a)
 {
   for(int i=0; a[i]!='\0'; i++)
-  {
-    d[i]=a[i];
-  }
+    {
+      d[i]= a[i];
+    }
 }
 char str_reverse(char *a)
 {
   int length=string_length(a);
-  length=1;char t;
+  length-=1;char t;
   for(int i=0; i<length/2; i++)
   {
     t=a[i];
@@ -43,3 +43,4 @@ int main()
   output(a);
   return 0;
 }
+
